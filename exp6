@@ -1,0 +1,117 @@
+mport java.util.Scanner;
+
+class product
+{
+int pcode;
+String pname;
+int price;
+
+product(int pcode,String pname,int price)
+{
+this.pcode=pcode;
+this.pname=pname;
+this.price=price;
+}
+
+/*void get()
+{
+Scanner sc=new Scanner(System.in);
+System.out.print("Enter product code:");
+int pc=sc.nextInt();
+System.out.print("Enter product name:");
+String pn=sc.next();
+System.out.print("Enter product price:");
+int pr=sc.nextInt();
+
+}*/
+
+  static void lowest(product p1, product p2, product p3){
+                if(p1.price<p2.price && p1.price<p3.price){
+                        System.out.println("\nProduct 1 has the lowest price");
+                }
+
+                else if(p2.price<p1.price && p2.price<p3.price){
+                        System.out.println("\nProduct 2 has the lowest price");
+                }
+
+                else if(p3.price<p1.price && p2.price>p3.price){
+                        System.out.println("\nProduct 3 has the lowest price");
+                }
+        }
+
+
+
+
+
+void display()
+{
+System.out.println("product code:       "+pcode);
+System.out.println("product name:       "+pname);
+System.out.println("product price:      "+price);
+System.out.println("-------------------------------------------------------------------------------");
+}
+
+public static void main(String args[])
+{
+//product p1=new product(pc1,pn1,pr1);
+
+Scanner sc=new Scanner(System.in);
+//1
+System.out.print("Enter product code:");
+int pc1=sc.nextInt();
+System.out.print("Enter product name:");
+String pn1=sc.next();
+System.out.print("Enter product price:");
+int pr1=sc.nextInt();
+product p1=new product(pc1,pn1,pr1);
+System.out.println();
+
+p1.display();
+
+//2
+System.out.print("Enter product code:");
+int pc2=sc.nextInt();
+System.out.print("Enter product name:");
+String pn2=sc.next();
+System.out.print("Enter product price:");
+int pr2=sc.nextInt();
+product p2=new product(pc2,pn2,pr2);
+System.out.println();
+
+
+p2.display();
+
+
+//3
+System.out.print("Enter product code:");
+int pc3=sc.nextInt();
+System.out.print("Enter product name:");
+String pn3=sc.next();
+System.out.print("Enter product price:");
+int pr3=sc.nextInt();
+product p3=new product(pc3,pn3,pr3);
+System.out.println();
+
+
+p3.display();
+
+
+
+//product p1=new product(pc,pn,pr);
+//p1.display();
+//product p1=new product(pc1,pn1,pr1);
+//product p2=new product(pc2,pn2,pr2);
+//product p3=new product(pc3,pn3,pr3);
+
+//p1.display();
+//p2.display();
+//p3.display();
+//p1.price
+//p3.display();
+lowest(p1,p2,p3);
+
+}
+
+
+
+}
