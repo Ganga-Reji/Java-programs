@@ -1,0 +1,49 @@
+mport java.util.Scanner;
+class Rectangle
+{
+int length;
+int breadth;
+
+void get(int l,int b)
+{
+length=l;
+breadth=b;
+System.out.print("Length of the rectangle: "+l);
+System.out.print("Breadth of the rectangle: "+b);
+}
+
+void area()
+{
+int area=length*breadth;
+System.out.print("Area of rectangle: "+area);
+}
+
+void perimeter()
+{
+int perimeter=2*(length+breadth);
+System.out.println("Perimeter of rectangle: "+perimeter);
+}
+}
+
+class Exp2
+{
+public static void main(String args[])
+{
+Rectangle obj1=new Rectangle();
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter length: ");
+int len=sc.nextInt();
+
+System.out.println("Enter breadth: ");
+
+int bred=sc.nextInt();
+
+obj1.get(len,bred);
+obj1.area();
+obj1.perimeter();
+}
+}
+
+
+
+
