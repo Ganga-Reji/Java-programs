@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class stringopn {
+    private String str;
+
+
+    public stringopn(String str) {
+        this.str = str;
+    }
+
+
+    public boolean isPalindrome() {
+        String reversed = "";
+        int length = str.length();
+
+        for (int i = length - 1; i >= 0; i--) {
+            reversed += str.charAt(i);
+        }
+
+        return str.equals(reversed);
+    }
+
+    public String concatenate(String other) {
+        return str + other;
+    }
+
+
+    public boolean contains(String substring) {
+        int subLength = substring.length();
+        int strLength = str.length();
+
+        for (int i = 0; i <= strLength - subLength; i++) {
+            boolean found = true;
+            for (int j = 0; j < subLength; j++) {
+                if (str.charAt(i + j) != substring.charAt(j)) {
+                    found = false;
+                    break;
+                }
+            }
+            if (found) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+        System.out.print("Enter a string to concatenate: ");
+        String concatStr = scanner.nextLine();
+        System.out.print("Enter a substring to search: ");
+        String subStr = scanner.nextLine();
+        scanner.close();
+        String lower=input.toLowerCase();
+        String  sub=subStr.toLowerCase();
+
+        stringopn s1= new stringopn(lower);
+
+
+        System.out.println("Is Palindrome? " + s1.isPalindrome());
+        System.out.println("Concatenated String: " + s1.concatenate(concatStr));
+        System.out.println("Contains Substring? " + s1.contains(sub));
+    }
+}
+
