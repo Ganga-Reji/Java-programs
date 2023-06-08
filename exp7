@@ -1,0 +1,56 @@
+import java.util.Scanner;
+import java.lang.Math;
+class prpt{
+        void area(double l,double w){
+                double a=l*w;
+                System.out.println("Area of the rectangle is:"+a);
+        }
+        void area(double a,double b,double c){
+                double s=(a+b+c)/2;
+                double d =Math.sqrt(s*(s-a)*(s-b)*(s-c));
+                System.out.println("Area of the Triangle is:"+d);
+        }
+        void area(double r){
+                 double t=3.14*(r*r);
+                System.out.println("Area of the Triangle is:"+t);
+        }
+}
+
+class shapes{
+        public static void main(String[] args){
+                int choice=1;
+                double r,a,b,c,l,w;
+                Scanner obj=new Scanner(System.in);
+                prpt o1=new prpt();
+                while(choice!=4){
+                        System.out.println();
+                        System.out.println("Enter the choice");
+                        System.out.println("1.Rectangle\n2.Triangle\n3.Circle\n4.Exit");
+                        choice=obj.nextInt();
+                        switch(choice){
+                                case 1: System.out.println("enter the length the rectangle:");
+                                        l=obj.nextInt();
+                                        System.out.println("enter the Width of the rectangle:");
+                                        w=obj.nextInt();
+                                        o1.area(l,w);
+                                        break;
+                                case 2: System.out.println("enter the 1st side of the triangle:");
+                                        a=obj.nextInt();
+                                        System.out.println("enter the 2nd side  of the triangle:");
+                                        b=obj.nextInt();
+                                        System.out.println("enter the 3rd side  of the triangle:");
+                                         c=obj.nextInt();
+                                        o1.area(a,b,c);
+                                        break;
+                                case 3:System.out.println("enter the Radius of the circle:");
+                                        r=obj.nextInt();
+                                        o1.area(r);
+                                        break;
+                        }
+}
+}
+
+
+}
+}
+
