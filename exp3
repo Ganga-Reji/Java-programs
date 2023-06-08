@@ -1,0 +1,97 @@
+import java.util.Scanner;
+class Account{
+String name;
+int balance=2000;
+int account_number;
+String type;
+
+
+
+
+
+Account(String n,int a,String t)
+{
+name=n;
+account_number=a;
+type=t;
+//balance=b;
+}
+
+
+Account()
+{
+this.name="";
+this.balance=0;
+this.account_number=0;
+this.type="";
+System.out.println("Name of account holder: "+name);
+System.out.println("Balance: "+balance); 
+System.out.println("Account number: "+account_number); 
+System.out.println("Type: "+type); 
+
+
+//balance=2000;
+
+}
+
+
+void display()
+{
+System.out.println("Name  of the account holder: "+name);
+System.out.println("Curent balance: "+balance);
+}
+
+
+void deposit(int value)
+{
+balance=balance+value;
+System.out.println("Deposit successful!.Balance amount: "+balance);
+}
+void withdraw(int value)
+{
+
+balance=balance-value;
+
+if(balance<2000)
+{
+System.out.println("Sorry there should be a minimum balnce of 2000 to withdraw");
+}
+
+else{
+System.out.println("Please collect your money");
+System.out.println("The balance after withdrawing money: "+balance);
+}
+
+}
+
+
+}
+
+class Exp3_Bank
+{
+public static void main(String args[])
+{
+
+Scanner sc=new Scanner(System.in);
+ 
+
+Account ob2=new Account();
+System.out.println("---------------------------------------------------");
+//System.out.print("Enter Name:"+" ");
+
+//String n=sc.next();
+Account ob=new Account("Henry",1234,"Savings");
+
+ob.display();
+System.out.print("Enter Amount to deposit:"+" ");
+int depo=sc.nextInt();
+ob.deposit(depo);
+
+System.out.print("Enter amount to withdraw: "+" ");
+int with=sc.nextInt();
+
+
+ob.withdraw(with);
+}
+}
+
