@@ -1,0 +1,63 @@
+class Employee
+{
+int empid;
+String name;
+double salary;
+String address;
+
+public Employee(int e,String n,int s,String a)
+{
+empid=e;
+name=n;
+salary=s;
+address=a;
+}
+}
+
+/*void get(int e,String n,int s,String a)
+{
+
+empid=e;
+name=n;
+salary=s;
+address=a;
+
+}
+}*/
+
+class Teacher extends Employee
+{
+String department;
+String subject;
+
+public Teacher(String d,String s)
+{
+department=d;
+subject=s;
+}
+
+void display()
+{
+
+System.out.println("Employee id:"+empid);
+
+System.out.println(" Department to which the teacher belongs:"+department);
+System.out.println("Subject being taught:"+subject);
+
+}
+}
+
+class Exp5
+{
+
+public static void main(String [] args)
+{
+
+Teacher t=new Teacher("Computer Science","Java");
+Employee e=new Employee(34567,"sred",34567,"rtyu");
+
+t.display();
+}
+}
+
+
