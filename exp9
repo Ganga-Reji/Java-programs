@@ -1,0 +1,87 @@
+import java.util.Scanner;
+class StringManipulator {
+    private String string;
+    
+    public StringManipulator(String string) {
+        this.string = string;
+    }
+    
+    public String capitalizeFirstLetter() {
+        return string.substring(0, 1).toUpperCase() + string.substring(1);
+    }
+    
+    public boolean isPalindrome() {
+        return string.equals(new StringBuilder(string).reverse().toString());
+    }
+    
+    public int[] countChars() {
+        int vowels = 0;
+        int consonants = 0;
+        int digits = 0;
+        int specials = 0;
+        
+        for (char c : string.toCharArray()) {
+            if (Character.isLetter(c)) {
+                if ("aeiouAEIOU".indexOf(c) != -1) {
+                    vowels++;
+                } else {
+                    consonants++;
+                }
+            } else if (Character.isDigit(c)) {
+                digits++;
+            } else {
+                specials++;
+            }
+        }
+        
+        return new int[]{vowels, consonants, digits, specials};
+    }
+    
+    public String deleteConsonants() {
+        return string.replaceAll("[^aeiouAEIOU]", "");
+    }
+    
+    public boolean containsChar(char c) {
+        return string.indexOf(c) != -1;
+    }
+    
+    public boolean equalsIgnoreCase(String other) {
+        return string.equalsIgnoreCase(other);
+    }
+    
+    public boolean endsWith(String suffix) {
+        return string.endsWith(suffix);
+    }
+}
+
+class StringMain {
+    public static void main(String[] args) {
+        Scanner s1 = new Scanner(System.in);
+        System.out.print("Enter string:");
+        String s=s1.nextLine();
+        StringManipulator strManipulator = new StringManipulator(s);
+        String capitalized = strManipulator.capitalizeFirstLetter();
+        System.out.println("Capitalized string: " + capitalized);
+        boolean isPalindrome = strManipulator.isPalindrome();
+        System.out.println("Is palindrome? " + isPalindrome);
+        int[] charCounts = strManipulator.countChars();
+        System.out.println("Vowels: " + charCounts[0]);
+        System.out.println("Consonants: " + charCounts[1]);
+        System.out.println("Digits: " + charCounts[2]);
+        System.out.println("Specials: " + charCounts[3]);
+        String vowelsOnly = strManipulator.deleteConsonants();
+        System.out.println("Vowels only: " + vowelsOnly);
+        System.out.print("Enter string to compare:");
+        String substring=s1.nextLine();
+        boolean equalsIgnoreCase = strManipulator.equalsIgnoreCase(substring);
+        System.out.println("Equals ignore case? " + equalsIgnoreCase);
+        System.out.print("Enter string to compare the ending:");
+        String Suffix=s1.nextLine();
+        boolean endsWith = strManipulator.endsWith(Suffix);
+        System.out.println("Ends with "+Suffix+"? " + endsWith);
+        System.out.print("Enter single character to search:");
+        char search=s1.next().charAt(0);
+        boolean containsChar = strManipulator.containsChar(search);
+        System.out.println("Contains "+search+"? " + containsChar);
+    }
+}
