@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class matrix{
+public static void main(String[] args) {
+System.out.println("Please enter the rows in the matrix");
+Scanner sc = new Scanner(System.in);
+int row = sc.nextInt();
+System.out.println("Please enter the columns in the matrix");
+int column = sc.nextInt();
+int[][] matrix = new int[row][column];
+for (int r = 0; r < row; r++) {
+for (int c = 0; c < column; c++) {
+System.out.println(String.format("Enter first[%d][%d] integer", r, c));
+matrix[r][c] = sc.nextInt();
+}
+}
+sc.close();
+System.out.println("\nColumn:" + column);
+System.out.println("\nRows:" + row);
+System.out.println("\nMatrix:\n");
+printarray(matrix);
+}
+private static void printarray(int[][] matrix) {
+for (int r = 0; r < matrix.length; r++) {
+for (int c = 0; c < matrix[0].length; c++) {
+System.out.print(matrix[r][c] + "\t");
+}
+System.out.println();
+}
+}
+}
+
